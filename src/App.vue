@@ -7,6 +7,7 @@
         ref="picpreview"
         :startOnMounted="true"
         output="blob"
+        overlayMask="./assets/outline.svg"
       ></v-easy-camera>
 
       <div
