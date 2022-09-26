@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <div style="position: relative; border: #fffa00 2px solid">
+      <img :src="outline" />
       <v-easy-camera
         v-model="picture"
         ref="picpreview"
@@ -39,6 +40,7 @@ export default {
   data: function () {
     return {
       picture: "",
+      outline: require('./assets/outline.svg')
     };
   },
   computed: {},
@@ -70,8 +72,6 @@ export default {
           var blob = new Blob([event.target.result]); // create blob...
           window.URL = window.URL || window.webkitURL;
           var blobURL = window.URL.createObjectURL(blob); // and get it's URL
-
-          console.log(blob);
 
           // helper Image object
           var image = new Image();
@@ -107,7 +107,6 @@ export default {
               const newImg = document.createElement("img");
               const url = URL.createObjectURL(blob);
 
-              console.log(blob);
               //send this blob to API
 
               newImg.onload = function () {
@@ -121,7 +120,7 @@ export default {
           };
         };
       } else {
-        console.log(this.picture);
+        // console.log(this.picture);
       }
     },
   },
